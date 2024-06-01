@@ -1,1 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(180deg, #000000, #FF0000);
+            color: #eee;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1; /* Ensure content is above the background */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #111;
+            color: #eee;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #eee;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff6666;
+        }
+
+        /* Project Card */
+        .project-card {
+            background: rgba(0, 0, 0, 0.1); /* Transparent black background */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow around the box */
+            margin-bottom: 20px;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .song-link {
+            color: #ff6666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .song-link:hover {
+            color: #eee;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div id="projects">
+            <h1>Projects</h1>
+            
+            <!-- Project Card 1 -->
+            <div class="project-card">
+                <h2 class="project-title">Project Title 1</h2>
+                <p class="project-description">Description of the project goes here. You can embed links to songs you've been on like this: <a class="song-link" href="song1_link">Song 1</a>, <a class="song-link" href="song2_link">Song 2</a>, etc.</p>
+            </div>
+            
+            <!-- Project Card 2 -->
+            <div class="project-card">
+                <h2 class="project-title">Project Title 2</h2>
+                <p class="project-description">Description of the project goes here. You can embed links to songs you've been on like this: <a class="song-link" href="song3_link">Song 3</a>, <a class="song-link" href="song4_link">Song 4</a>, etc.</p>
+            </div>
+            
+            <!-- Add more project cards as needed -->
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Jaidee Productions</p>
+    </footer>
+
+</body>
+</html>
 
