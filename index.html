@@ -95,30 +95,26 @@
             color: #ff6666;
         }
 
-        /* Clipping mask */
-        .photo-container {
-            width: 300px; /* Adjust the width as needed */
-            height: 300px; /* Adjust the height as needed */
-            overflow: hidden;
-            border-radius: 50%; /* For circular clipping mask */
-            mix-blend-mode: screen; /* Blend mode to blend with background */
-            position: absolute;
+        /* Background Image */
+        .background-image {
+            position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            margin: auto;
-            z-index: 0;
-        }
-
-        .photo-container img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            background-image: url('your-background-image.jpg'); /* Replace 'your-background-image.jpg' with your image path */
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.7; /* Adjust opacity as needed */
+            z-index: -1; /* Behind other content */
+            mix-blend-mode: multiply; /* Blend with background */
         }
     </style>
 </head>
 <body>
+
+    <!-- Background Image -->
+    <div class="background-image"></div>
 
     <nav>
         <ul>
@@ -149,11 +145,6 @@
                 <br>
                 <p>As I continue on this musical journey, I draw inspiration from the ordinary and the extraordinary, from everyday life and unique experiences. I hope that one day, my music will touch someone, offering truth, sparking joy, or simply providing a soundtrack to their life. Until then, I’ll keep chasing melodies, seeking truth, and weaving my existence into every note. I am not just creating music people want, I am creating music people need.</p>
             </div>
-        </div>
-
-        <!-- Clipping Mask Photo -->
-        <div class="photo-container">
-            <img src="983C2935-1847-4872-8194-A98F0E4D0771.JPG" alt="Your Photo">
         </div>
     </div>
     
