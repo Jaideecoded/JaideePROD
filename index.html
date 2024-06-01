@@ -23,6 +23,8 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
+            position: relative;
+            z-index: 1; /* Ensure content is above the background */
         }
 
         .hero {
@@ -99,6 +101,14 @@
             height: 300px; /* Adjust the height as needed */
             overflow: hidden;
             border-radius: 50%; /* For circular clipping mask */
+            mix-blend-mode: screen; /* Blend mode to blend with background */
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            z-index: 0;
         }
 
         .photo-container img {
@@ -143,7 +153,7 @@
 
         <!-- Clipping Mask Photo -->
         <div class="photo-container">
-            <img src="983C2935-1847-4872-8194-A98F0E4D0771.JPG" alt="Your Photo">
+            <img src="your-photo.jpg" alt="Your Photo">
         </div>
     </div>
     
