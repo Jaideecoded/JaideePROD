@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <meta name="description" content="Jaidee Productions - Showcasing creative projects and recent social media posts">
-    <meta name="keywords" content="Jaidee Productions, creative projects, music, portfolio, social media">
-    <meta property="og:title" content="Jaidee Productions Projects">
-    <meta property="og:description" content="Showcasing creative projects and recent social media posts">
+    <meta name="description" content="Jaidee Productions - Showcasing creative projects">
+    <meta name="keywords" content="Jaidee Productions, creative projects, music, portfolio">
+    <meta property="og:title" content="Jaidee Productions">
+    <meta property="og:description" content="Showcasing creative projects">
     <meta property="og:image" content="link-to-your-image.jpg">
     <meta property="og:url" content="your-website-url">
     <meta name="twitter:card" content="summary_large_image">
@@ -73,18 +73,13 @@
 
         .container {
             max-width: 1200px;
-            margin: 80px auto 40px; /* Add top margin to avoid content under the nav */
-            padding: 20px;
+            margin: 0 auto;
+            padding: 80px 20px 40px; /* Add top padding to avoid content under the nav */
             flex: 1;
         }
 
         .section {
-            margin-bottom: 60px;
-        }
-
-        .section h1 {
-            font-size: 2rem;
-            margin-bottom: 20px;
+            padding: 60px 0;
         }
 
         .project-card {
@@ -121,18 +116,6 @@
             color: #eee;
         }
 
-        .social-media {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .social-media iframe {
-            border: 0;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
         footer {
             text-align: center;
             padding: 20px 0;
@@ -153,18 +136,36 @@
                 margin: 10px 0;
             }
         }
+
+        /* Animation on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: none;
+        }
     </style>
 </head>
 <body>
     <nav>
         <ul>
+            <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#social-media">Social Media</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <div class="container">
-        <section id="projects" class="section">
+        <section id="about" class="section fade-in">
+            <h1>About</h1>
+            <p>Information about Jaidee Productions.</p>
+        </section>
+
+        <section id="projects" class="section fade-in">
             <h1>Projects</h1>
             <div class="project-card">
                 <h2 class="project-title"><a href="https://youtu.be/5Eq-FW0tvGE?si=oGyMXL4mewLhluym" class="song-link">Girls & Ganja - Jaidee Ft PassiveTheRapper Prod x JustLayton</a></h2>
@@ -176,10 +177,47 @@
             </div>
         </section>
 
-        <section id="social-media" class="section">
-            <h1>Recent Social Media Posts</h1>
-            <div class="social-media">
-                <!-- Twitter Embed -->
-                <iframe src="https://twitframe.com/show?url=https://twitter.com/your_twitter_handle/status/your_tweet_id" width="400" height="400" allowfullscreen></iframe>
-                <!-- Instagram Embed -->
-                <iframe src="
+        <section id="contact" class="section fade-in">
+            <h1>Contact</h1>
+            <p>Contact information goes here.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Jaidee Productions</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling and scrollspy
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+
+            function activateLink() {
+                let index = sections.length;
+
+                while (--index && window.scrollY + 50 < sections[index].offsetTop) {}
+
+                navLinks.forEach((link) => link.classList.remove('active'));
+                navLinks[index].classList.add('active');
+            }
+
+            activateLink();
+            window.addEventListener('scroll', activateLink);
+
+            // Intersection Observer for animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
