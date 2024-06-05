@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Jaidee Productions - Showcasing creative projects">
+    <meta name="keywords" content="Jaidee Productions, creative projects, music, portfolio">
+    <meta property="og:title" content="Jaidee Productions">
+    <meta property="og:description" content="Showcasing creative projects">
+    <meta property="og:image" content="link-to-your-image.jpg">
+    <meta property="og:url" content="your-website-url">
+    <meta name="twitter:card" content="summary_large_image">
     <style>
         /* Basic Reset */
         * {
@@ -30,24 +37,6 @@
             flex-direction: column;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            flex: 1;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background: #111;
-            color: #eee;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-        }
-
         nav {
             background: rgba(0, 0, 0, 0.7);
             padding: 10px 20px;
@@ -56,6 +45,9 @@
             left: 0;
             width: 100%;
             z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         nav ul {
@@ -74,8 +66,20 @@
             transition: color 0.3s;
         }
 
-        nav ul li a:hover {
+        nav ul li a:hover,
+        nav ul li a.active {
             color: #ff6666;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px 40px; /* Add top padding to avoid content under the nav */
+            flex: 1;
+        }
+
+        .section {
+            padding: 60px 0;
         }
 
         .project-card {
@@ -112,11 +116,18 @@
             color: #eee;
         }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px 10px;
-            }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #111;
+            color: #eee;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
 
+        @media (max-width: 768px) {
             nav ul {
                 flex-direction: column;
             }
@@ -124,6 +135,18 @@
             nav ul li {
                 margin: 10px 0;
             }
+        }
+
+        /* Animation on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: none;
         }
     </style>
 </head>
@@ -137,7 +160,12 @@
     </nav>
 
     <div class="container">
-        <div id="projects">
+        <section id="about" class="section fade-in">
+            <h1>About</h1>
+            <p>Information about Jaidee Productions.</p>
+        </section>
+
+        <section id="projects" class="section fade-in">
             <h1>Projects</h1>
             <div class="project-card">
                 <h2 class="project-title"><a href="https://youtu.be/5Eq-FW0tvGE?si=oGyMXL4mewLhluym" class="song-link">Girls & Ganja - Jaidee Ft PassiveTheRapper Prod x JustLayton</a></h2>
@@ -147,11 +175,49 @@
                 <h2 class="project-title">Project Title 2</h2>
                 <p class="project-description">Description of the project goes here.</p>
             </div>
-        </div>
+        </section>
+
+        <section id="contact" class="section fade-in">
+            <h1>Contact</h1>
+            <p>Contact information goes here.</p>
+        </section>
     </div>
 
     <footer>
         <p>&copy; 2024 Jaidee Productions</p>
     </footer>
+
+    <script>
+        // Smooth scrolling and scrollspy
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+
+            function activateLink() {
+                let index = sections.length;
+
+                while (--index && window.scrollY + 50 < sections[index].offsetTop) {}
+
+                navLinks.forEach((link) => link.classList.remove('active'));
+                navLinks[index].classList.add('active');
+            }
+
+            activateLink();
+            window.addEventListener('scroll', activateLink);
+
+            // Intersection Observer for animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
 </body>
 </html>
