@@ -15,18 +15,20 @@
         }
 
         body {
-            background: linear-gradient(180deg, #000000, #FF0000);
+            /* Explicitly define background properties */
+            background: none;
+            background-color: #000; /* Fallback color */
+            background-image: linear-gradient(180deg, #000000, #FF0000);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
             color: #eee;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden; /* Prevent horizontal scrollbar */
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
-            overflow: hidden; /* Clear floats inside container */
         }
 
         footer {
@@ -38,7 +40,6 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            z-index: 9999; /* Ensure footer is above other content */
         }
 
         nav {
@@ -48,7 +49,6 @@
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 9999; /* Ensure nav is above other content */
         }
 
         nav ul {
@@ -123,18 +123,8 @@
         </div>
     </div>
 
-    <!-- Instagram Embed -->
-    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/C6RWcyTsDjZ/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
-        <div style="padding:16px;">
-            <a href="https://www.instagram.com/p/C6RWcyTsDjZ/?utm_source=ig_embed&amp;utm_campaign=loading" style="background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
-                <!-- Instagram Embed Content -->
-            </a>
-        </div>
-    </blockquote>
-
     <footer>
         <p>&copy; 2024 Jaidee Productions</p>
     </footer>
 </body>
 </html>
-
