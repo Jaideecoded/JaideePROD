@@ -23,8 +23,6 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
-            position: relative;
-            z-index: 1; /* Ensure content is above the background */
         }
 
         footer {
@@ -45,7 +43,6 @@
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1000;
         }
 
         nav ul {
@@ -68,12 +65,11 @@
             color: #ff6666;
         }
 
-        /* Project Card */
         .project-card {
-            background: rgba(0, 0, 0, 0.1); /* Transparent black background */
+            background: rgba(0, 0, 0, 0.1);
             padding: 20px;
             border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow around the box */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             margin-bottom: 20px;
         }
 
@@ -99,7 +95,6 @@
     </style>
 </head>
 <body>
-
     <nav>
         <ul>
             <li><a href="#about">About</a></li>
@@ -111,26 +106,19 @@
     <div class="container">
         <div id="projects">
             <h1>Projects</h1>
-            
-            <!-- Project 1 -->
             <div class="project-card">
                 <h2 class="project-title"><a href="https://youtu.be/5Eq-FW0tvGE?si=oGyMXL4mewLhluym" class="song-link">Girls & Ganja - Jaidee Ft PassiveTheRapper Prod x JustLayton</a></h2>
                 <p class="project-description">Description of the project goes here.</p>
             </div>
-            
-            <!-- Project 2 -->
             <div class="project-card">
                 <h2 class="project-title">Project Title 2</h2>
                 <p class="project-description">Description of the project goes here.</p>
             </div>
-            
-            <!-- Add more projects as needed -->
         </div>
     </div>
-    
+
     <footer>
         <p>&copy; 2024 Jaidee Productions</p>
     </footer>
-
 </body>
 </html>
