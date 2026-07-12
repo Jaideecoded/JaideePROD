@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
     <style>
-        /* Basic Reset */
+        /* ---------- Basic Reset ---------- */
         * {
             margin: 0;
             padding: 0;
@@ -24,12 +24,13 @@
             margin: 0 auto;
             padding: 40px 20px;
             position: relative;
-            z-index: 1; /* Ensure content is above the background */
+            z-index: 1;
         }
 
+        /* ---------- Hero ---------- */
         .hero {
             text-align: center;
-            padding: 100px 0;
+            padding: 100px 0 60px;
         }
 
         .hero h1 {
@@ -40,24 +41,52 @@
 
         .hero p {
             font-size: 1.2rem;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             color: #ccc;
         }
 
+        /* ---------- "Book Your Session" Button (green → orange) ---------- */
+        .book-btn {
+            display: inline-block;
+            padding: 16px 44px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #2ecc71, #e67e22);
+            /* green → orange */
+            box-shadow: 0 4px 18px rgba(46, 204, 113, 0.35);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+
+        .book-btn:hover {
+            transform: scale(1.06);
+            box-shadow: 0 8px 32px rgba(46, 204, 113, 0.5);
+            background: linear-gradient(135deg, #27ae60, #d35400);
+            /* deeper green→orange on hover */
+        }
+
+        /* ---------- Subtitle ---------- */
         .subtitle {
             font-size: 1.5rem;
             margin-bottom: 20px;
             color: #eee;
         }
 
+        /* ---------- Section Cards ---------- */
         .section-content {
             margin-bottom: 40px;
-            background: rgba(0, 0, 0, 0.1); /* Transparent black background */
+            background: rgba(0, 0, 0, 0.1);
             padding: 20px;
             border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow around the box */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
 
+        /* ---------- Footer ---------- */
         footer {
             text-align: center;
             padding: 20px 0;
@@ -65,6 +94,7 @@
             color: #eee;
         }
 
+        /* ---------- Navigation ---------- */
         nav {
             background: rgba(0, 0, 0, 0.7);
             padding: 10px 20px;
@@ -73,42 +103,106 @@
             left: 0;
             width: 100%;
             z-index: 1000;
+            backdrop-filter: blur(4px);
         }
 
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-        }
-
-        nav ul li {
-            margin: 0 10px;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         nav ul li a {
             color: #eee;
             text-decoration: none;
-            transition: color 0.3s;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 8px 16px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
         }
 
+        /* ---- Nav hover: green → orange gradient text + underline ---- */
         nav ul li a:hover {
-            color: #ff6666;
+            background: linear-gradient(135deg, #2ecc71, #e67e22);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(46, 204, 113, 0.25);
         }
 
-        /* Background Image */
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #2ecc71, #e67e22);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
+            background-clip: unset;
+        }
+
+        nav ul li a:hover::after {
+            width: 60%;
+        }
+
+        /* ---------- Background Image ---------- */
         .background-image {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('983C2935-1847-4872-8194-A98F0E4D0771.JPG'); /* Replace 'your-background-image.jpg' with your image path */
+            background-image: url('983C2935-1847-4872-8194-A98F0E4D0771.JPG');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
-            opacity: 0.7; /* Adjust opacity as needed */
-            z-index: -1; /* Behind other content */
-            mix-blend-mode: multiply; /* Blend with background */
+            opacity: 0.7;
+            z-index: -1;
+            mix-blend-mode: multiply;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero {
+                padding: 80px 0 40px;
+            }
+            nav ul {
+                gap: 10px;
+            }
+            nav ul li a {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+            .book-btn {
+                padding: 14px 32px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            nav ul {
+                gap: 6px;
+            }
+            nav ul li a {
+                font-size: 0.75rem;
+                padding: 4px 10px;
+            }
         }
     </style>
 </head>
@@ -117,6 +211,7 @@
     <!-- Background Image -->
     <div class="background-image"></div>
 
+    <!-- Navigation -->
     <nav>
         <ul>
             <li><a href="#about">About</a></li>
@@ -125,39 +220,87 @@
         </ul>
     </nav>
 
+    <!-- Main Content -->
     <div class="container">
+
+        <!-- Hero -->
         <div class="hero">
             <h1>Welcome to Jaidee Productions</h1>
             <p>Explore my projects and skills.</p>
+            <!-- ★ Book Your Session Button ★ -->
+            <a href="#" class="book-btn">📅 Book Your Session</a>
         </div>
-        
-        <!-- About Me Section -->
+
+        <!-- About Me -->
         <div class="about-section" id="about">
             <h2 class="subtitle">About Me</h2>
             <div class="section-content">
-                <p>For the past four and a half years, I’ve been deeply involved in the music industry, an art form that has captivated me since I was running about in nappies. My love for music is profound, and I’m always trying to expand my knowledge in every corner in this treacherous world of music. My musical roots are firmly planted in the rich soils of 90s boom bap and RnB, so I have always looked up to pioneers like Flipmode Squad, Common, The Alchemist, Mobb Deep, and many others who have left an undeniable mark on the genre.</p>
-                <br>
-                <p>I’ve spent countless hours mastering FL Studio and Logic Pro X. These tools have become an extension of my creative mind, allowing me to bring you tracks that blend unique samples with powerful drums. I dont know where I'd be without music, more than anything, it's helped me learn to control my emotions and been almost like instrunctions to many chapters of my life.    .</p>
-                <br>
-                <p>While I started with production, I’ve found that my real passion is in my lyricism. I don’t make music to cater to the market; I make music that people need. My lyrics don't hold up with the modern aspects of hiphop which tend to be a recipe of; Women, Money, Drugs, Guns and things that air around in that area. I get it though, I grew up in Luton and everyone was brainwashed by this traplord dream, even me sometimes. All of my closest people were either selling drugs or scamming the government and I wanted my own hustle that didn't carry the same risks.    </p>
-                <br>
-                <p>This led me to spend a lot of time alone either writing or producing wherever I could, whenever I could. I spent 2 years travelling the Uk after leaving home at 17 and although I regret it, it helped me build charecter and I probably learned more in them 2 years than I did all throughout highschool.  </p>
-                <br>
-                <p></p>
-                <br>
-                <p>As I continue on this musical journey, I draw inspiration from the ordinary and the extraordinary, from everyday life and unique experiences. I hope that one day, my music will touch someone, offering truth, sparking joy, or simply providing a soundtrack to their life. Until then, I’ll keep chasing melodies, seeking truth, and weaving my existence into every note. I am not just creating music people want, I am creating music people need.</p>
+                <p>
+                    For the past four and a half years, I’ve been deeply involved in the music industry,
+                    an art form that has captivated me since I was running about in nappies. My love for
+                    music is profound, and I’m always trying to expand my knowledge in every corner of
+                    this treacherous world of music. My musical roots are firmly planted in the rich
+                    soils of 90s boom bap and RnB, so I have always looked up to pioneers like Flipmode
+                    Squad, Common, The Alchemist, Mobb Deep, and many others who have left an undeniable
+                    mark on the genre.
+                </p>
+                <br />
+                <p>
+                    I’ve spent countless hours mastering FL Studio and Logic Pro X. These tools have
+                    become an extension of my creative mind, allowing me to bring you tracks that blend
+                    unique samples with powerful drums. I don't know where I'd be without music — more
+                    than anything, it's helped me learn to control my emotions and been almost like
+                    instructions to many chapters of my life.
+                </p>
+                <br />
+                <p>
+                    While I started with production, I’ve found that my real passion is in my lyricism.
+                    I don’t make music to cater to the market; I make music that people <em>need</em>.
+                    My lyrics don't hold up with the modern aspects of hip-hop which tend to be a recipe
+                    of: Women, Money, Drugs, Guns and things that air around in that area. I get it
+                    though — I grew up in Luton and everyone was brainwashed by this traplord dream,
+                    even me sometimes. All of my closest people were either selling drugs or scamming
+                    the government and I wanted my own hustle that didn't carry the same risks.
+                </p>
+                <br />
+                <p>
+                    This led me to spend a lot of time alone either writing or producing wherever I could,
+                    whenever I could. I spent 2 years travelling the UK after leaving home at 17 and
+                    although I regret it, it helped me build character and I probably learned more in
+                    those 2 years than I did all throughout high school.
+                </p>
+                <br />
+                <p>
+                    As I continue on this musical journey, I draw inspiration from the ordinary and the
+                    extraordinary, from everyday life and unique experiences. I hope that one day, my
+                    music will touch someone, offering truth, sparking joy, or simply providing a
+                    soundtrack to their life. Until then, I’ll keep chasing melodies, seeking truth,
+                    and weaving my existence into every note. I am not just creating music people want,
+                    I am creating music people need.
+                </p>
             </div>
         </div>
 
-        <!-- Where it all started Section -->
+        <!-- Where it all started -->
         <div class="where-it-started-section" id="where-it-started">
             <h2 class="subtitle">Where it all started</h2>
             <div class="section-content">
                 <p>Content for "Where it all started" section goes here.</p>
             </div>
         </div>
+
+        <!-- Contact (added so the nav link has a target) -->
+        <div id="contact" style="padding-top: 40px;">
+            <h2 class="subtitle">Contact</h2>
+            <div class="section-content">
+                <p>📧 <a href="mailto:jaidee@example.com" style="color: #eee; text-decoration: underline;">jaidee@example.com</a></p>
+                <p>📱 +44 1234 567890</p>
+            </div>
+        </div>
+
     </div>
-    
+
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Jaidee Productions</p>
     </footer>
